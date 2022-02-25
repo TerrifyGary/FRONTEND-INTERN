@@ -3,11 +3,16 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function App() {
   const [avatarURL, setAvatarURL] = useState();
   const [githubUsername, setGitHubUsername] = useState();
   const [repoData, setRepoData] = useState();
+
+  // ------------------------------- //
+  const [repoStar, setRepoStar] = useState();
+  // ------------------------------- //
 
   async function repoDataURL() {
     //Get repo data about github user
@@ -15,7 +20,7 @@ function App() {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(36, result);
+          console.log(10, result);
           const list = result.map((item) => (
             <div className="text-center">
               <a target="_blank">
@@ -45,6 +50,7 @@ function App() {
           console.log(result);
           setAvatarURL(result.avatar_url);
           setGitHubUsername(result.login);
+          repoDataURL();
         },
         (error) => {
           console.log(error);
@@ -53,17 +59,14 @@ function App() {
   }, []);
   return (
     <div className="App w-150 min-vh-100 justify-content-center align-items-center d-flex flex-column">
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={avatarURL} />
-        <Card.Body>
-          <Card.Title>{githubUsername}</Card.Title>
-          <Button className="App w-10"variant="outline-success" onClick={repoDataURL}>
-            我公開的 public repos!
-          </Button>
-
-        </Card.Body>
-      </Card>
-      {repoData}
+      <img src={avatarURL}></img>
+      <h1 className="App container-fluid">
+        {githubUsername}
+      </h1>
+      <a>
+        {repoData}
+      </a>
+      
     </div>
   );
 }
