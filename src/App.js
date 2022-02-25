@@ -57,9 +57,10 @@ function App() {
         <Card.Img variant="top" src={avatarURL} />
         <Card.Body>
           <Card.Title>{githubUsername}</Card.Title>
-          <Button className="App w-105"variant="primary" onClick={repoDataURL}>
+          <Button className="App w-10"variant="outline-success" onClick={repoDataURL}>
             我公開的 public repos!
           </Button>
+
         </Card.Body>
       </Card>
       {repoData}
