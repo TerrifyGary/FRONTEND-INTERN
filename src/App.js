@@ -1,14 +1,16 @@
-import logo from "./logo.svg";
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./App.css";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import ListGroup from 'react-bootstrap/ListGroup';
+import InfoPage from './InfoPage';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 function App() {
   const [avatarURL, setAvatarURL] = useState();
   const [githubUsername, setGitHubUsername] = useState();
   const [repoData, setRepoData] = useState();
+
+  let userName ="TerrifyGary"
 
   // ------------------------------- //
   const [repoStar, setRepoStar] = useState();
@@ -16,7 +18,7 @@ function App() {
 
   async function repoDataURL() {
     //Get repo data about github user
-    await fetch("https://api.github.com/users/TerrifyGary/repos")
+    await fetch("https://api.github.com/users/"+userName+"/repos")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -26,9 +28,9 @@ function App() {
               <a target="_blank">
                 repo名稱：  
               </a>
-              <a target="_blank" href={item.svn_url}> 
+              <NavLink className="nav-item" to="/infoPage">
                 {item.name}
-              </a>
+              </NavLink> 
               <a target="_blank">
                 ，星星數 ： {item.stargazers_count}
               </a>
@@ -43,11 +45,11 @@ function App() {
   }
 
   useEffect(() => {
-    fetch("https://api.github.com/users/TerrifyGary")
+    fetch("https://api.github.com/users/"+userName)
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
+          console.log(10,result);
           setAvatarURL(result.avatar_url);
           setGitHubUsername(result.login);
           repoDataURL();
@@ -59,7 +61,7 @@ function App() {
   }, []);
   return (
     <div className="App w-150 min-vh-100 justify-content-center align-items-center d-flex flex-column">
-      <img src={avatarURL}></img>
+      <img src={avatarURL} height="200" width="200"></img>
       <h1 className="App container-fluid">
         {githubUsername}
       </h1>
