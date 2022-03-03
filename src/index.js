@@ -11,7 +11,7 @@ ReactDOM.render(
   <Router>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/infoPage" element={<InfoPage />} />
+      <Route path="/*" element={<InfoPage />} />
     </Routes>
   </Router>,
   document.getElementById('root')

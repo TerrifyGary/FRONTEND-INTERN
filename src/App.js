@@ -10,11 +10,7 @@ function App() {
   const [githubUsername, setGitHubUsername] = useState();
   const [repoData, setRepoData] = useState();
 
-  let userName ="TerrifyGary"
-
-  // ------------------------------- //
-  const [repoStar, setRepoStar] = useState();
-  // ------------------------------- //
+  let userName ="octocat"
 
   async function repoDataURL() {
     //Get repo data about github user
@@ -28,9 +24,9 @@ function App() {
               <a target="_blank">
                 repo名稱：  
               </a>
-              <NavLink className="nav-item" to="/infoPage">
+              <NavLink className="nav-item" to={item.name}>
                 {item.name}
-              </NavLink> 
+              </NavLink>
               <a target="_blank">
                 ，星星數 ： {item.stargazers_count}
               </a>
@@ -72,5 +68,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
