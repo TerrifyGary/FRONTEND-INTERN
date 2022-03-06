@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./App.css";
-import InfoPage from './InfoPage';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 
 function App() {
   const [avatarURL, setAvatarURL] = useState();
@@ -17,7 +14,7 @@ function App() {
     await fetch("https://api.github.com/users/"+userName+"/repos")
       .then((res) => res.json())
       .then(
-        (result) => {
+        (result)=>{
           console.log(10, result);
           const list = result.map((item) => (
             <div className="text-center">

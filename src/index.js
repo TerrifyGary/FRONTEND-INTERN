@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import InfoPage from './InfoPage';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-export { default as InfoPage} from "./InfoPage";
+// export { default as InfoPage} from "./InfoPage";
 
 ReactDOM.render(
   <Router>
