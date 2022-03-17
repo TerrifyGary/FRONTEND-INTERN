@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 function Home(){
+    // 主畫面。
+    // 希望您會喜歡「熊熊遇見你」的可愛GIF。
+    
     return(
         <div className="App w-150 min-vh-100 justify-content-center align-items-center d-flex flex-column">
             <h1>
