@@ -23,6 +23,7 @@ function Home(){
             <h3>
                 &#127822; Have a nice day &#60;&#51;. &#127822;
             </h3>
+            
         </div>
     )
 }

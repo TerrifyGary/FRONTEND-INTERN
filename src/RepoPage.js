@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
   useParams
 } from "react-router-dom";
@@ -50,8 +51,12 @@ function RepoPage() {
         Repo URL：
         <a href={repoURL}>{repoURL}</a>
       </div>
+      <p></p>
+      <div>
+            Go Back <a href="/home">Home</a>.
+      </div>
     </div>
-      
+    
   )
 }
 
